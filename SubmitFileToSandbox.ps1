@@ -1,3 +1,5 @@
+# Use new API 3.0 to get status of file info.  Still need to use API v 2.0 to pull the download Url of the collected file.
+
 
 $Config         = (Get-Content "$PSScriptRoot\XDR-Config.json" -Raw) | ConvertFrom-Json
 $XDR_SERVER     = $Config.XDR_SERVER
@@ -70,6 +72,7 @@ Do{
 
 # Get Collected File downlaod URL and FileName
 # V1 API v3.0 currently does not have the download info API;  using v 2.0.
+
 $COLLECTED_FILE_URI     = $XDR_URI + "/v2.0/xdr/response/downloadInfo"
 $FileCollectionActionID = $COLLECTED_FILE_TASK_DETAILS.items[0].id
 $COLLECTED_FILE_DATA = @{
